@@ -1,0 +1,23 @@
+@startuml
+
+title API REST (C# Back-end) - Secuence Diagram
+
+actor User
+boundary "Controler"
+boundary "Service APP"
+boundary "service Domanin"
+boundary "DAO"
+database "Modelo"
+
+User -> "Controler" : HTTP Request (Recurso)
+"Controler" -> "Service APP"
+"Service APP" -> "service Domanin" : DTO entrada
+"service Domanin" -> "DAO" : get Model
+"DAO" -> "Modelo" : get Model
+"Modelo" -> "DAO"  : Set model
+"DAO" -> "service Domanin" : set Model
+"service Domanin" -> "Service APP" : DTO salida
+"Service APP" -> "Controler"
+"Controler" -> User : DTO to JSON
+
+@enduml

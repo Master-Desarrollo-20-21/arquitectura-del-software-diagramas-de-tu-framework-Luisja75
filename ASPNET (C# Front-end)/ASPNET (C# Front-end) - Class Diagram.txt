@@ -1,0 +1,16 @@
+@startuml
+
+title ASP.NET (C# Front-end) - Class Diagram
+
+Class Request <<Evento>>
+Class CS <<Presentador>>
+Class ASPX <<Vista>>
+Class Modelo <<Modelo>>
+Class DAO <<Vista>>
+
+CS -right--> Request
+CS --> Modelo
+CS ..> DAO
+CS --> ASPX : dataBinding (ViewState)
+
+@enduml

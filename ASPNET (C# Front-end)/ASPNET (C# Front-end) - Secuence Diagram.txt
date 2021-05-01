@@ -1,0 +1,20 @@
+@startuml
+
+title ASPNET (C# Front-end) - Secuence Diagram
+
+actor User
+boundary "Controler CS"
+boundary "Vista ASPX"
+boundary "DAO"
+database "Modelo"
+
+User -> "Vista ASPX" : Click Button
+"Vista ASPX" -> "Controler CS" : Event
+"Controler CS" -> "DAO"
+"DAO" -> "Modelo" : get Model
+"Modelo" -> "DAO"  : Set model
+"DAO" -> "Controler CS"
+"Controler CS" -> "Vista ASPX"
+"Vista ASPX" -> User : HTML
+
+@enduml

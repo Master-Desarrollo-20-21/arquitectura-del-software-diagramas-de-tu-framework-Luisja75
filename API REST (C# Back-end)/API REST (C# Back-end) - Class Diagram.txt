@@ -1,0 +1,26 @@
+@startuml
+
+title API REST (C# Back-end) - Class Diagram
+
+Class RequestHTTP <<Evento>>
+
+rectangle Controlador {
+    Class Recurso
+    Class ServiceAPP
+    Class ServiceDomain
+    Recurso -right--> RequestHTTP
+    Recurso --> ServiceAPP : Inyeccion
+	ServiceAPP --> ServiceDomain
+}
+
+Class Modelos <<Modelo>>
+Class DAO <<Vista>>
+Class DTO <<Vista>>
+
+ServiceDomain --> Modelos
+ServiceDomain ..> DAO
+Recurso ..> DTO
+ServiceAPP ..> DTO
+ServiceDomain --> DTO
+
+@enduml
